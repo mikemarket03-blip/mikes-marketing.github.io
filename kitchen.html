@@ -3,13 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Category Name</title>
+<title>Curated Essentials | Premium Picks</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
+    min-height: 100vh;
+    color: #2f3e46;
+    overflow-x: hidden;
+}
+
+/* Soft floating background glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+    top: -250px;
+    right: -250px;
+    filter: blur(100px);
+    z-index: -1;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.title-block {
+    background: rgba(255,255,255,0.45);
+    backdrop-filter: blur(20px);
+    padding: 3rem 4rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    display: inline-block;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.title-block h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.title-block p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #4f6d7a;
+}
+
+/* Product Section */
+.products {
+    max-width: 1200px;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 0 2rem 4rem;
+}
+
+/* Product Card */
+.card {
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.8rem;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #556b75;
+    margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+.button {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #5f8fdc, #3a6fd8);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(58, 111, 216, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+    color: #6b7f87;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .title-block {
+        padding: 2rem;
+    }
+
+    .title-block h1 {
+        font-size: 2.2rem;
+    }
+}
 </style>
 </head>
 
