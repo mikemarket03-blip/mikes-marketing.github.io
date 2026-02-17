@@ -68,17 +68,20 @@ body::before {
     color: #fff;
 }
 
-/* SECONDARY HOME BUTTON BAR */
+/* SECONDARY HOME BUTTON BAR — UPDATED */
 .home-bar {
     position: sticky;
-    top: 60px; /* sits right below the nav */
+    top: 60px;
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(12px);
-    padding: 12px 0;
-    text-align: center;
+    padding: 12px 20px;
     z-index: 999;
     transition: top 0.35s ease;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    display: flex;
+    justify-content: flex-end; /* pushes Home button to the right */
+    align-items: center;
 }
 
 .home-bar a {
@@ -208,11 +211,13 @@ footer {
 <!-- TOP NAV -->
 <div class="top-nav" id="topNav">
     <ul>
+        <li><a href="index.html">Home</a></li>
         <li><a href="homegoods.html">Home Goods</a></li>
         <li><a href="kitchen.html">Kitchen</a></li>
         <li><a href="outdoors.html">Outdoors</a></li>
-        <li><a href="garden-and-patio.html">Garden & Patio</a></li>
+        <li><a href="garden.html">Garden</a></li>
         <li><a href="grill.html" class="active">Grill</a></li>
+        <li><a href="more.html">More</a></li>
     </ul>
 </div>
 
