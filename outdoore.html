@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outdoors | Curated Essentials</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
+    min-height: 100vh;
+    color: #2f3e46;
+    overflow-x: hidden;
+}
+
+/* Soft floating background glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+    top: -250px;
+    right: -250px;
+    filter: blur(100px);
+    z-index: -1;
+}
+
+/* Top-right Home Button */
+.home-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(15px);
+    padding: 0.8rem 1.6rem;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #2f3e46;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.title-block {
+    background: rgba(255,255,255,0.45);
+    backdrop-filter: blur(20px);
+    padding: 3rem 4rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    display: inline-block;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.title-block h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.title-block p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #4f6d7a;
+}
+
+/* Product Section */
+.products {
+    max-width: 1200px;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 0 2rem 4rem;
+}
+
+/* Product Card */
+.card {
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.8rem;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #556b75;
+    margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+.button {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #5f8fdc, #3a6fd8);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(58, 111, 216, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+    color: #6b7f87;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .title-block {
+        padding: 2rem;
+    }
+
+    .title-block h1 {
+        font-size: 2.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="home-btn">Home</a>
+
+<section class="header">
+    <div class="title-block">
+        <h1>Outdoors</h1>
+        <p>Gear built for adventure, durability, and the open air.</p>
+    </div>
+</section>
+
+<section class="products">
+
+    <!-- Product 1 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81xwF7Z0Y-L._AC_SL1500_.jpg" alt="Camping Chair">
+        <div class="card-content">
+            <h3>Portable Folding Camping Chair</h3>
+            <p>Lightweight, durable, and perfect for camping, tailgating, or backyard relaxing.</p>
+            <a href="#" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71pZ5WZC1eL._AC_SL1500_.jpg" alt="Camping Lantern">
+        <div class="card-content">
+            <h3>Rechargeable LED Camping Lantern</h3>
+            <p>Ultra‑bright, long‑lasting lantern ideal for camping, emergencies, and night adventures.</p>
+            <a href="#" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81v0uDnk3JL._AC_SL1500_.jpg" alt="Hiking Backpack">
+        <div class="card-content">
+            <h3>Water‑Resistant Hiking Backpack</h3>
+            <p>Lightweight pack with multiple compartments for day hikes and outdoor trips.</p>
+            <a href="#" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Curated Essentials. This page contains affiliate links.
+</footer>
+
+</body>
+</html>
+
