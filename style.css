@@ -43,3 +43,44 @@ ul {
 .btn:hover {
     background-color: #e56c00;
 }
+
+/* Sticky Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    transition: top 0.4s ease, opacity 0.3s ease;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(47,62,70,0.45); /* subtle until hover */
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #2f3e46;
+    transform: translateY(-2px);
+}
+
+/* Add spacing so content doesn't hide under header */
+body {
+    padding-top: 80px;
+}
+
