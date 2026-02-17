@@ -19,20 +19,6 @@ body {
     overflow-x: hidden;
 }
 
-<!-- Sticky Header Navigation -->
-<header id="site-header" class="site-header">
-    <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="homegoods.html">Home Goods</a>
-        <a href="kitchen.html">Kitchen</a>
-        <a href="outdoors.html">Outdoors</a>
-        <a href="garden.html">Garden</a>
-        <a href="grill.html">Grill</a>
-        <a href="more.html">More</a>
-    </nav>
-</header>
-
-
 body::before {
     content: "";
     position: fixed;
@@ -177,6 +163,19 @@ footer {
 
 <body>
 
+    <!-- Sticky Header Navigation -->
+<header id="site-header" class="site-header">
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="homegoods.html">Home Goods</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="outdoors.html">Outdoors</a>
+        <a href="garden.html">Garden</a>
+        <a href="grill.html">Grill</a>
+        <a href="more.html">More</a>
+    </nav>
+</header>
+
 <a href="index.html" class="home-btn">Home</a>
 
 <section class="header">
@@ -234,5 +233,23 @@ footer {
     © 2026 Curated Essentials. Contains affiliate links.
 </footer>
 
+<script>
+let lastScroll = 0;
+const header = document.getElementById("site-header");
+
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+        header.style.top = "-100px"; // hide
+    } else {
+        header.style.top = "0"; // show
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
+
 </body>
 </html>
+
