@@ -31,7 +31,7 @@ body::before {
     z-index: -1;
 }
 
-/* NEW TOP NAV */
+/* TOP NAV */
 .top-nav {
     background-color: #ffffff;
     padding: 15px 0;
@@ -39,6 +39,7 @@ body::before {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: top 0.35s ease;
 }
 
 .top-nav ul {
@@ -46,8 +47,6 @@ body::before {
     display: flex;
     justify-content: center;
     gap: 25px;
-    padding: 0;
-    margin: 0;
 }
 
 .top-nav a {
@@ -69,6 +68,35 @@ body::before {
     color: #fff;
 }
 
+/* SECONDARY HOME BUTTON BAR */
+.home-bar {
+    position: sticky;
+    top: 60px; /* sits right below the nav */
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 12px 0;
+    text-align: center;
+    z-index: 999;
+    transition: top 0.35s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.home-bar a {
+    padding: 10px 22px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #2f3e46;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.home-bar a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+}
+
 /* Header */
 .header {
     text-align: center;
@@ -82,13 +110,11 @@ body::before {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     display: inline-block;
-    animation: fadeIn 1.2s ease forwards;
 }
 
 .title-block h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    font-weight: 700;
     margin-bottom: 1rem;
 }
 
@@ -179,8 +205,8 @@ footer {
 
 <body>
 
-<!-- NEW TOP NAV -->
-<div class="top-nav">
+<!-- TOP NAV -->
+<div class="top-nav" id="topNav">
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="homegoods.html">Home Goods</a></li>
@@ -190,6 +216,11 @@ footer {
         <li><a href="grill.html" class="active">Grill</a></li>
         <li><a href="more.html">More</a></li>
     </ul>
+</div>
+
+<!-- SECONDARY HOME BUTTON -->
+<div class="home-bar" id="homeBar">
+    <a href="index.html">Home</a>
 </div>
 
 <section class="header">
@@ -246,6 +277,26 @@ footer {
 <footer>
     © 2026 Curated Essentials. Contains affiliate links.
 </footer>
+
+<script>
+let lastScroll = 0;
+const topNav = document.getElementById("topNav");
+const homeBar = document.getElementById("homeBar");
+
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+        topNav.style.top = "-100px";
+        homeBar.style.top = "-100px";
+    } else {
+        topNav.style.top = "0";
+        homeBar.style.top = "60px";
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
 
 </body>
 </html>
