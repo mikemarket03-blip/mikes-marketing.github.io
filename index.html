@@ -5,8 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curated Essentials | Categories</title>
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Curated Essentials brings together premium, hand-selected products across Home Goods, Kitchen, Outdoors, Garden & Patio, and Grill categories.">
+
+<!-- Open Graph (Facebook / Meta) -->
+<meta property="og:title" content="Curated Essentials">
+<meta property="og:description" content="Explore premium, hand-selected essentials across every category.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mikemarket03-blip.github.io/mikes-marketing.github.io/">
+<meta property="og:image" content="your-social-preview-image.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://mikemarket03-blip.github.io/mikes-marketing.github.io/">
 
 <!-- STRUCTURED DATA FOR GOOGLE -->
 <script type="application/ld+json">
@@ -45,57 +64,56 @@
     "@type": "ItemList",
     "name": "Curated Essentials Categories",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home Goods",
-        "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/homegoods.html"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Kitchen",
-        "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/kitchen.html"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Outdoors",
-        "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/outdoors.html"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Garden & Patio",
-        "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/garden-and-patio.html"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "Grill",
-        "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/grill.html"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Home Goods", "url": "homegoods.html" },
+      { "@type": "ListItem", "position": 2, "name": "Kitchen", "url": "kitchen.html" },
+      { "@type": "ListItem", "position": 3, "name": "Outdoors", "url": "outdoors.html" },
+      { "@type": "ListItem", "position": 4, "name": "Garden & Patio", "url": "garden-and-patio.html" },
+      { "@type": "ListItem", "position": 5, "name": "Grill", "url": "grill.html" }
     ]
   }
 }
 </script>
 
+<!-- Navigation Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  "name": ["Home Goods", "Kitchen", "Outdoors", "Garden & Patio", "Grill"],
+  "url": [
+    "homegoods.html",
+    "kitchen.html",
+    "outdoors.html",
+    "garden-and-patio.html",
+    "grill.html"
+  ]
+}
+</script>
+
 <style>
-/* --- YOUR ORIGINAL DESIGN SYSTEM (unchanged) --- */
+/* --- BASE RESET --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* --- PAGE FADE-IN --- */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
     min-height: 100vh;
     color: #2f3e46;
     overflow-x: hidden;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Background glow */
 body::before {
     content: "";
     position: fixed;
@@ -108,6 +126,12 @@ body::before {
     z-index: -1;
 }
 
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
 .header {
     text-align: center;
     padding: 4rem 2rem;
@@ -136,7 +160,7 @@ body::before {
     color: #4f6d7a;
 }
 
-/* --- VERTICAL CATEGORY BUTTONS --- */
+/* Category Buttons */
 .category-list {
     max-width: 600px;
     margin: 3rem auto 5rem;
@@ -161,7 +185,7 @@ body::before {
 }
 
 .category-btn:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.02);
     box-shadow: 0 25px 60px rgba(0,0,0,0.1);
 }
 
@@ -171,6 +195,12 @@ footer {
     padding: 2rem;
     font-size: 0.85rem;
     color: #6b7f87;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+footer:hover {
+    opacity: 1;
 }
 </style>
 </head>
@@ -184,7 +214,7 @@ footer {
     </div>
 </section>
 
-<section class="category-list">
+<section class="category-list" aria-label="Product Categories">
     <a href="homegoods.html" class="category-btn">Home Goods</a>
     <a href="kitchen.html" class="category-btn">Kitchen</a>
     <a href="outdoors.html" class="category-btn">Outdoors</a>
