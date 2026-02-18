@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Garden | Curated Essentials</title>
+<title>Garden & Patio | Curated Essentials</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+/* RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* BODY */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
@@ -31,31 +33,59 @@ body::before {
     z-index: -1;
 }
 
-/* Home Button */
-.home-btn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
+/* NAVIGATION */
+.navbar {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
     background: rgba(255,255,255,0.55);
     backdrop-filter: blur(15px);
-    padding: 0.8rem 1.6rem;
-    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.nav-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 12px;
     text-decoration: none;
     color: #2f3e46;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.6);
     transition: 0.3s ease;
 }
 
-.home-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+.nav-btn:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Header */
+.nav-active {
+    background: #3a6fd8;
+    color: white;
+}
+
+/* BREADCRUMBS */
+.breadcrumbs {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4f6d7a;
+}
+
+.breadcrumbs a {
+    color: #3a6fd8;
+    text-decoration: none;
+}
+
+/* HEADER */
 .header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem;
 }
 
 .title-block {
@@ -65,6 +95,7 @@ body::before {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     display: inline-block;
+    max-width: 650px;
     animation: fadeIn 1.2s ease forwards;
 }
 
@@ -81,7 +112,7 @@ body::before {
     color: #4f6d7a;
 }
 
-/* Product Grid */
+/* PRODUCT GRID */
 .products {
     max-width: 1200px;
     margin: 4rem auto;
@@ -91,16 +122,17 @@ body::before {
     padding: 0 2rem 4rem;
 }
 
-/* Cards */
+/* PRODUCT CARD */
 .card {
     background: rgba(255,255,255,0.55);
     backdrop-filter: blur(15px);
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-    transition: 0.4s ease;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1rem;
 }
 
 .card:hover {
@@ -111,12 +143,17 @@ body::before {
 .card img {
     width: 100%;
     height: 260px;
-    object-fit: contain;   /* show full image */
-    background: #ffffff;   /* optional clean background */
-    padding: 10px;         /* optional spacing */
-
+    object-fit: contain;
+    background: #ffffff;
+    padding: 10px;
+    transition: transform 0.4s ease;
 }
 
+.card:hover img {
+    transform: scale(1.03);
+}
+
+/* CARD CONTENT */
 .card-content {
     padding: 1.8rem;
     flex-grow: 1;
@@ -135,6 +172,7 @@ body::before {
     margin-bottom: 1.5rem;
 }
 
+/* BUTTON */
 .button {
     display: inline-block;
     padding: 0.7rem 1.8rem;
@@ -144,39 +182,68 @@ body::before {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: 0.3s ease;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: 0 12px 30px rgba(58,111,216,0.3);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 2rem;
     font-size: 0.85rem;
     color: #6b7f87;
 }
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .title-block { padding: 2rem; }
+    .title-block h1 { font-size: 2.2rem; }
+    .navbar { flex-wrap: wrap; gap: 0.6rem; }
+}
 </style>
 </head>
 
 <body>
 
-<a href="index.html" class="home-btn">Home</a>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="homegoods.html" class="nav-btn">Home Goods</a>
+    <a href="kitchen.html" class="nav-btn">Kitchen</a>
+    <a href="outdoors.html" class="nav-btn">Outdoors</a>
+    <a href="garden-and-patio.html" class="nav-btn nav-active" aria-current="page">Garden & Patio</a>
+    <a href="grill.html" class="nav-btn">Grill</a>
+</nav>
 
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <a href="index.html">Home</a> › Garden & Patio
+</div>
+
+<!-- HEADER -->
 <section class="header">
     <div class="title-block">
-        <h1>Garden</h1>
+        <h1>Garden & Patio</h1>
         <p>Tools and essentials to help your garden thrive.</p>
     </div>
 </section>
 
+<!-- PRODUCTS -->
 <section class="products">
 
     <!-- Product 1 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71VrKX9qj2L._AC_SL1500_.jpg" alt="Garden Tools">
+        <img src="https://m.media-amazon.com/images/I/71VrKX9qj2L._AC_SL1500_.jpg" alt="Expandable Garden Hose">
         <div class="card-content">
             <h3>Expandable Garden Hose Set</h3>
             <p>Flexi Hose Expandable Garden Hose with 8 Function Nozzle, 50FT - Lightweight Retractable Garden Hose, Water Hose - No-Kink Flexibility, 3/4 Inch Solid Brass Fittings and Double Latex Core</p>
@@ -186,7 +253,7 @@ footer {
 
     <!-- Product 2 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/712oOsznuxL._AC_SL1500_.jpg" alt="Watering Can">
+        <img src="https://m.media-amazon.com/images/I/712oOsznuxL._AC_SL1500_.jpg" alt="Pruning Shears">
         <div class="card-content">
             <h3>Pruning Shears</h3>
             <p>Fiskars Bypass Pruning Shears, 5/8-Inch Cut Capacity Garden Clippers, Gardening Scissors with Sharp, Rust Resistant Steel Blade</p>
@@ -196,20 +263,20 @@ footer {
 
     <!-- Product 3 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71Cfw+DE0TL._AC_SL1500_.jpg" alt="Garden Kneeler">
+        <img src="https://m.media-amazon.com/images/I/71Cfw+DE0TL._AC_SL1500_.jpg" alt="Solar String Lights">
         <div class="card-content">
             <h3>Solar String Lights</h3>
-            <p>addlon 54(48+6) FT Solar String Lights Waterproof,Patio Lights Solar Powered with Remote & USB Port 15+1 LED Shatterproof Bulbs 3 Light Modes, Dimmable Solar Light for Camping Backyard Garden</p>
+            <p>addlon 54(48+6) FT Solar String Lights Waterproof, Patio Lights Solar Powered with Remote & USB Port, Shatterproof Bulbs, 3 Light Modes, Dimmable for Camping, Backyard, Garden</p>
             <a href="https://amzn.to/3OupN5i" class="button" target="_blank">View Product</a>
         </div>
     </div>
-    
+
     <!-- Product 4 -->
     <div class="card">
         <img src="https://m.media-amazon.com/images/I/41sEkxPKlSL._AC_SL1500_.jpg" alt="Garden Flag Holder Stand">
         <div class="card-content">
             <h3>Garden Flag Holder Stand</h3>
-            <p>YEAHOME Garden Flag Holder Stand, Premium Yard Flag Holder Weather-Proof Metal Powder-Coated Flagpole with Clip and Stopper for Christmas Garden Flag, Outdoor Garden Decor Decoration</p>
+            <p>YEAHOME Garden Flag Holder Stand, Premium Yard Flag Holder Weather-Proof Metal Powder-Coated Flagpole with Clip and Stopper for Outdoor Garden Decor</p>
             <a href="https://amzn.to/4axOgxX" class="button" target="_blank">View Product</a>
         </div>
     </div>
