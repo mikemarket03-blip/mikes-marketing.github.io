@@ -9,8 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+/* RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* BODY */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
@@ -31,70 +33,59 @@ body::before {
     z-index: -1;
 }
 
-/* TOP NAV */
-.top-nav {
-    background-color: #ffffff;
-    padding: 15px 0;
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: top 0.35s ease;
-}
-
-.top-nav ul {
-    list-style: none;
+/* NAVIGATION */
+.navbar {
+    width: 100%;
+    padding: 1.2rem 2rem;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-.top-nav a {
-    text-decoration: none;
-    padding: 10px 18px;
-    background-color: #f5f5f5;
-    border-radius: 6px;
-    color: #333;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.top-nav a:hover {
-    background-color: #e0e0e0;
-}
-
-.top-nav a.active {
-    background-color: #333;
-    color: #fff;
-}
-
-/* FLOATING HOME BUTTON (top-right corner) */
-.home-button {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    z-index: 1100;
-
-    padding: 10px 22px;
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(12px);
+.nav-btn {
+    padding: 0.6rem 1.4rem;
     border-radius: 12px;
     text-decoration: none;
     color: #2f3e46;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.6);
     transition: 0.3s ease;
 }
 
-.home-button:hover {
+.nav-btn:hover {
+    background: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Header */
+.nav-active {
+    background: #3a6fd8;
+    color: white;
+}
+
+/* BREADCRUMBS */
+.breadcrumbs {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4f6d7a;
+}
+
+.breadcrumbs a {
+    color: #3a6fd8;
+    text-decoration: none;
+}
+
+/* HEADER */
 .header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem;
 }
 
 .title-block {
@@ -104,11 +95,14 @@ body::before {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     display: inline-block;
+    max-width: 650px;
+    animation: fadeIn 1.2s ease forwards;
 }
 
 .title-block h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 1rem;
 }
 
@@ -118,7 +112,7 @@ body::before {
     color: #4f6d7a;
 }
 
-/* Product Grid */
+/* PRODUCT GRID */
 .products {
     max-width: 1200px;
     margin: 4rem auto;
@@ -128,16 +122,17 @@ body::before {
     padding: 0 2rem 4rem;
 }
 
-/* Cards */
+/* PRODUCT CARD */
 .card {
     background: rgba(255,255,255,0.55);
     backdrop-filter: blur(15px);
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-    transition: 0.4s ease;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1rem;
 }
 
 .card:hover {
@@ -151,8 +146,14 @@ body::before {
     object-fit: contain;
     background: #ffffff;
     padding: 10px;
+    transition: transform 0.4s ease;
 }
 
+.card:hover img {
+    transform: scale(1.03);
+}
+
+/* CARD CONTENT */
 .card-content {
     padding: 1.8rem;
     flex-grow: 1;
@@ -171,6 +172,7 @@ body::before {
     margin-bottom: 1.5rem;
 }
 
+/* BUTTON */
 .button {
     display: inline-block;
     padding: 0.7rem 1.8rem;
@@ -180,39 +182,55 @@ body::before {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: 0.3s ease;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: 0 12px 30px rgba(58,111,216,0.3);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 2rem;
     font-size: 0.85rem;
     color: #6b7f87;
 }
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .title-block { padding: 2rem; }
+    .title-block h1 { font-size: 2.2rem; }
+    .navbar { flex-wrap: wrap; gap: 0.6rem; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING HOME BUTTON -->
-<a href="index.html" class="home-button">Home</a>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="homegoods.html" class="nav-btn">Home Goods</a>
+    <a href="kitchen.html" class="nav-btn">Kitchen</a>
+    <a href="outdoors.html" class="nav-btn">Outdoors</a>
+    <a href="garden-and-patio.html" class="nav-btn">Garden & Patio</a>
+    <a href="grill.html" class="nav-btn nav-active" aria-current="page">Grill</a>
+</nav>
 
-<!-- TOP NAV -->
-<div class="top-nav" id="topNav">
-    <ul>
-        <li><a href="homegoods.html">Home Goods</a></li>
-        <li><a href="kitchen.html">Kitchen</a></li>
-        <li><a href="outdoors.html">Outdoors</a></li>
-        <li><a href="garden-and-patio.html">Garden & Patio</a></li>
-        <li><a href="grill.html" class="active">Grill</a></li>
-    </ul>
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <a href="index.html">Home</a> › Grill Essentials
 </div>
 
+<!-- HEADER -->
 <section class="header">
     <div class="title-block">
         <h1>Grill Essentials</h1>
@@ -220,44 +238,45 @@ footer {
     </div>
 </section>
 
+<!-- PRODUCTS -->
 <section class="products">
 
     <!-- Product 1 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/81i+4JZR+dL._AC_SL1500_.jpg" alt="Grill Tools">
+        <img src="https://m.media-amazon.com/images/I/81i+4JZR+dL._AC_SL1500_.jpg" alt="BBQ Accessories Grill Tools">
         <div class="card-content">
             <h3>BBQ Accessories | Grill Tools</h3>
-            <p>Kaluns BBQ Accessories Grill Tools, Mens Valentines Day Gifts for Him, Heavy Duty Stainless Steel Barbecue Grill Accessories for Outdoor Grill with Aluminum Case and Apron, Grilling Gifts for Men</p>
+            <p>Kaluns BBQ Accessories Grill Tools, Heavy Duty Stainless Steel Barbecue Grill Accessories with Aluminum Case and Apron — Great grilling gift set.</p>
             <a href="https://amzn.to/3Oon7Go" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 2 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71cadR1FX3L._SL1500_.jpg" alt="Meat Thermometer">
+        <img src="https://m.media-amazon.com/images/I/71cadR1FX3L._SL1500_.jpg" alt="Smart Wireless Meat Thermometer">
         <div class="card-content">
             <h3>Smart Wireless Meat Thermometer</h3>
-            <p>CHEF iQ Sense | Smart Wireless Meat Thermometer | 2 Ultra-Thin Probes | WiFi Unlimited Range | 1000°F Heat Safe | 5 Sensors | BBQ, Grill, Oven, Smoker, Air Fryer | Gen3</p>
+            <p>CHEF iQ Sense | Smart Wireless Meat Thermometer | 2 Ultra-Thin Probes | WiFi Unlimited Range | 1000°F Heat Safe | 5 Sensors | For BBQ, Grill, Oven, Smoker, Air Fryer.</p>
             <a href="https://amzn.to/4qDeN2P" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 3 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71sz4MHnDkL._AC_SX425_.jpg" alt="Griddle Kit">
+        <img src="https://m.media-amazon.com/images/I/71sz4MHnDkL._AC_SX425_.jpg" alt="Griddle Accessories Kit">
         <div class="card-content">
             <h3>35PCS Griddle Accessories Kit</h3>
-            <p>35PCS Griddle Accessories Kit, Flat Top Grill Accessories Set for Blackstone and Camp Chef, Grill Spatula Set with Enlarged Spatulas, Basting Cover, Scraper for Outdoor Barbecue</p>
+            <p>35PCS Flat Top Grill Accessories Set for Blackstone and Camp Chef — Enlarged spatulas, basting cover, scraper, and more for outdoor barbecue cooking.</p>
             <a href="https://amzn.to/4qLkqMp" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 4 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61Z7jS1AETL._AC_SL1500_.jpg" alt="Grill Cover">
+        <img src="https://m.media-amazon.com/images/I/61Z7jS1AETL._AC_SL1500_.jpg" alt="Grillman Grill Cover">
         <div class="card-content">
             <h3>Grillman Grill Cover</h3>
-            <p>Grillman Grill Cover, BBQ Outdoor Grill Covers, Charcoal, Gas Grills, Waterproof, Rip-Proof, Weather-Resistant, Anti-UV, Barbecue Cover for Weber, Genesis, Charbroil, Nexgrill, etc (Black, 58 Inch)</p>
+            <p>Grillman Grill Cover — Waterproof, Rip-Proof, Weather-Resistant, Anti-UV. Fits Weber, Genesis, Charbroil, Nexgrill, and more (58 Inch).</p>
             <a href="https://amzn.to/4bWp0E5" class="button" target="_blank">View Product</a>
         </div>
     </div>
@@ -267,26 +286,6 @@ footer {
 <footer>
     © 2026 Curated Essentials. Contains affiliate links.
 </footer>
-
-<script>
-let lastScroll = 0;
-const topNav = document.getElementById("topNav");
-const homeButton = document.querySelector(".home-button");
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > lastScroll && currentScroll > 80) {
-        topNav.style.top = "-100px";
-        homeButton.style.top = "-100px";
-    } else {
-        topNav.style.top = "0";
-        homeButton.style.top = "15px";
-    }
-
-    lastScroll = currentScroll;
-});
-</script>
 
 </body>
 </html>
