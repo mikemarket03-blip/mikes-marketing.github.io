@@ -41,6 +41,13 @@ body::before {
     z-index: -1;
 }
 
+/* LAYOUT CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 /* NAVIGATION BAR */
 .navbar {
     width: 100%;
@@ -84,6 +91,7 @@ body::before {
     font-size: 0.9rem;
     color: #4f6d7a;
 }
+
 .breadcrumbs a {
     color: #3a6fd8;
     text-decoration: none;
@@ -102,6 +110,7 @@ body::before {
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     display: inline-block;
+    max-width: 650px;
     animation: fadeIn 1.2s ease forwards;
 }
 
@@ -138,6 +147,7 @@ body::before {
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1rem;
 }
 
 .card:hover {
@@ -192,7 +202,7 @@ body::before {
 }
 
 .button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: 0 12px 30px rgba(58, 111, 216, 0.3);
 }
 
@@ -231,7 +241,7 @@ footer {
 <!-- NAVIGATION -->
 <nav class="navbar">
     <a href="homegoods.html" class="nav-btn">Home Goods</a>
-    <a href="kitchen.html" class="nav-btn nav-active">Kitchen</a>
+    <a href="kitchen.html" class="nav-btn nav-active" aria-current="page">Kitchen</a>
     <a href="outdoors.html" class="nav-btn">Outdoors</a>
     <a href="garden-and-patio.html" class="nav-btn">Garden & Patio</a>
     <a href="grill.html" class="nav-btn">Grill</a>
