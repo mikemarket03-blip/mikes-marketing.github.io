@@ -5,15 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kitchen Essentials | Curated Essentials</title>
 
+<!-- SEO -->
+<meta name="description" content="Premium, hand‑selected kitchen tools curated for quality, durability, and everyday cooking excellence.">
+<meta name="keywords" content="kitchen essentials, curated essentials, cooking tools, premium kitchen gear, best kitchen products">
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BODY */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
@@ -34,30 +41,58 @@ body::before {
     z-index: -1;
 }
 
-/* Top-right Home Button */
-.home-btn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
+/* NAVIGATION BAR */
+.navbar {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
     background: rgba(255,255,255,0.55);
     backdrop-filter: blur(15px);
-    padding: 0.8rem 1.6rem;
-    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.nav-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 12px;
     text-decoration: none;
     color: #2f3e46;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.6);
     transition: 0.3s ease;
 }
 
-.home-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.1);
+.nav-btn:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
+.nav-active {
+    background: #3a6fd8;
+    color: white;
+}
+
+/* BREADCRUMBS */
+.breadcrumbs {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4f6d7a;
+}
+.breadcrumbs a {
+    color: #3a6fd8;
+    text-decoration: none;
+}
+
+/* HEADER */
 .header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 3.5rem 2rem 2rem;
 }
 
 .title-block {
@@ -75,7 +110,6 @@ body::before {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    letter-spacing: 1px;
 }
 
 .title-block p {
@@ -84,6 +118,7 @@ body::before {
     color: #4f6d7a;
 }
 
+/* PRODUCT GRID */
 .products {
     max-width: 1200px;
     margin: 4rem auto;
@@ -93,6 +128,7 @@ body::before {
     padding: 0 2rem 4rem;
 }
 
+/* PRODUCT CARD */
 .card {
     background: rgba(255,255,255,0.55);
     backdrop-filter: blur(15px);
@@ -112,12 +148,17 @@ body::before {
 .card img {
     width: 100%;
     height: 260px;
-    object-fit: contain;   /* show full image */
-    background: #ffffff;   /* optional clean background */
-    padding: 10px;         /* optional spacing */
-
+    object-fit: contain;
+    background: #ffffff;
+    padding: 10px;
+    transition: transform 0.4s ease;
 }
 
+.card:hover img {
+    transform: scale(1.03);
+}
+
+/* CARD CONTENT */
 .card-content {
     padding: 1.8rem;
     flex-grow: 1;
@@ -136,6 +177,7 @@ body::before {
     margin-bottom: 1.5rem;
 }
 
+/* BUTTON */
 .button {
     display: inline-block;
     padding: 0.7rem 1.8rem;
@@ -154,6 +196,7 @@ body::before {
     box-shadow: 0 12px 30px rgba(58, 111, 216, 0.3);
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 2rem;
@@ -161,18 +204,23 @@ footer {
     color: #6b7f87;
 }
 
+/* ANIMATION */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
     .title-block {
         padding: 2rem;
     }
-
     .title-block h1 {
         font-size: 2.2rem;
+    }
+    .navbar {
+        flex-wrap: wrap;
+        gap: 0.6rem;
     }
 }
 </style>
@@ -180,8 +228,22 @@ footer {
 
 <body>
 
-<a href="index.html" class="home-btn">Home</a>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="homegoods.html" class="nav-btn">Home Goods</a>
+    <a href="kitchen.html" class="nav-btn nav-active">Kitchen</a>
+    <a href="outdoors.html" class="nav-btn">Outdoors</a>
+    <a href="garden.html" class="nav-btn">Garden</a>
+    <a href="more.html" class="nav-btn">More</a>
+</nav>
 
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <a href="index.html">Home</a> › Kitchen Essentials
+</div>
+
+<!-- HEADER -->
 <section class="header">
     <div class="title-block">
         <h1>Kitchen Essentials</h1>
@@ -189,54 +251,55 @@ footer {
     </div>
 </section>
 
+<!-- PRODUCTS -->
 <section class="products">
 
     <!-- Product 1 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/81h38+LzxAL._AC_SL1500_.jpg" alt="Product Image">
+        <img loading="lazy" src="https://m.media-amazon.com/images/I/81h38+LzxAL._AC_SL1500_.jpg" alt="Mandoline Slicer">
         <div class="card-content">
             <h3>Fullstar Mandoline Kitchen Slicer</h3>
-            <p>Fullstar Mandoline Slicer for Kitchen, Fruit Cutter, Cheese Grater, Cucumber Slicer, Veggie Spiralizer, Food Cutter & Kitchen Gadgets & Gifts with Safety Glove (9 in 1, White)</p>
+            <p>9‑in‑1 slicer, grater, spiralizer, and cutter with safety glove included.</p>
             <a href="https://amzn.to/3OL4VXx" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 2 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61is4F1PDOL._SL1500_.jpg" alt="Product Image">
+        <img loading="lazy" src="https://m.media-amazon.com/images/I/61is4F1PDOL._SL1500_.jpg" alt="Digital Thermometer">
         <div class="card-content">
             <h3>Digital Food Thermometer</h3>
-            <p>Instant Read Meat Thermometer Digital with ±0.5℉ Precision, Food Thermometer for Cooking Kitchen Gadgets, Oven Grill Candy BBQ Essentials Accessories</p>
+            <p>Instant‑read thermometer with ±0.5℉ precision for cooking, grilling, and baking.</p>
             <a href="https://amzn.to/3MqxZD9" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 3 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/91o88q0yajL._AC_SX450_.jpg" alt="Product Image">
+        <img loading="lazy" src="https://m.media-amazon.com/images/I/91o88q0yajL._AC_SX450_.jpg" alt="Kitchen Scale">
         <div class="card-content">
             <h3>Digital Kitchen Scale</h3>
-            <p>Amazon Basics Digital Kitchen Scale with LCD Display, Batteries Included, Can weigh up to 11 pounds, Black and Stainless Steel</p>
+            <p>Amazon Basics scale with LCD display, weighing up to 11 lbs.</p>
             <a href="https://amzn.to/3ZDyKM0" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 4 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/81IOyCPHwcL._AC_SL1500_.jpg" alt="Product Image">
+        <img loading="lazy" src="https://m.media-amazon.com/images/I/81IOyCPHwcL._AC_SL1500_.jpg" alt="Food Storage Containers">
         <div class="card-content">
             <h3>Food Storage Containers</h3>
-            <p>40 PCS Food Storage Containers with Lids Airtight (20 Lids &20 Containers) - Leakproof Meal-Prep Containers for Kitchen Storage Reusable Plastic Microwave/Dishwasher Safe with Labels & Pen</p>
+            <p>40‑piece airtight, leakproof meal‑prep set with labels and pen.</p>
             <a href="https://amzn.to/4qDmu9a" class="button" target="_blank">View Product</a>
         </div>
     </div>
 
     <!-- Product 5 -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71Qj8BrJQtL._AC_SL1500_.jpg" alt="Product Image">
+        <img loading="lazy" src="https://m.media-amazon.com/images/I/71Qj8BrJQtL._AC_SL1500_.jpg" alt="Vegetable Chopper">
         <div class="card-content">
-            <h3>Vegetable Chopper and Mandoline Slicer</h3>
-            <p>8 Blade All-in-1 Vegetable Chopper Mandoline Slicer with Container, Food Chopper, Onion Chopper, Veggie Cutter for Salad, Kitchen Gadgets Accessories Essentials, White</p>
+            <h3>Vegetable Chopper & Mandoline</h3>
+            <p>8‑blade all‑in‑one chopper, slicer, and cutter with container.</p>
             <a href="https://amzn.to/3MtExAY" class="button" target="_blank">View Product</a>
         </div>
     </div>
