@@ -69,7 +69,7 @@ ul {
 .nav-links a {
     font-size: 1rem;
     font-weight: 500;
-    color: rgba(47,62,70,0.45); /* subtle until hover */
+    color: rgba(47,62,70,0.45);
     text-decoration: none;
     transition: 0.25s ease;
 }
@@ -83,6 +83,7 @@ ul {
 body {
     padding-top: 80px;
 }
+
 .top-nav {
     background-color: #ffffff;
     padding: 15px 0;
@@ -96,7 +97,7 @@ body {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 25px; /* spacing between buttons */
+    gap: 25px;
     padding: 0;
     margin: 0;
 }
@@ -120,7 +121,7 @@ body {
     color: #fff;
 }
 
-/* BREADCRUMBS */
+/* ⭐ BREADCRUMB TAB (inserted cleanly here) */
 .breadcrumbs {
     text-align: center;
     margin-top: 1.5rem;
@@ -146,4 +147,3 @@ body {
 .breadcrumbs a:hover {
     text-decoration: underline;
 }
-
