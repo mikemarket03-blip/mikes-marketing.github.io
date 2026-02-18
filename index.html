@@ -8,6 +8,82 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- STRUCTURED DATA FOR GOOGLE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Curated Essentials",
+  "url": "https://yourwebsite.com/index.html",
+  "description": "Curated Essentials brings together premium, hand-selected products across Home Goods, Kitchen, Outdoors, Garden & Patio, and Grill categories.",
+
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Curated Essentials",
+    "url": "https://yourwebsite.com/"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Curated Essentials",
+    "url": "https://yourwebsite.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yourwebsite.com/logo.png"
+    }
+  },
+
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yourwebsite.com/index.html"
+      }
+    ]
+  },
+
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Curated Essentials Categories",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home Goods",
+        "url": "https://yourwebsite.com/homegoods.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kitchen",
+        "url": "https://yourwebsite.com/kitchen.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Outdoors",
+        "url": "https://yourwebsite.com/outdoors.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Garden & Patio",
+        "url": "https://yourwebsite.com/garden-and-patio.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Grill",
+        "url": "https://yourwebsite.com/grill.html"
+      }
+    ]
+  }
+}
+</script>
+
 <style>
 /* --- YOUR ORIGINAL DESIGN SYSTEM (unchanged) --- */
 * {
@@ -64,7 +140,7 @@ body::before {
     color: #4f6d7a;
 }
 
-/* --- VERTICAL CATEGORY BUTTONS (matching your card style) --- */
+/* --- VERTICAL CATEGORY BUTTONS --- */
 .category-list {
     max-width: 600px;
     margin: 3rem auto 5rem;
@@ -117,7 +193,7 @@ footer {
     <a href="kitchen.html" class="category-btn">Kitchen</a>
     <a href="outdoors.html" class="category-btn">Outdoors</a>
     <a href="garden-and-patio.html" class="category-btn">Garden & Patio</a>
-    <a href="grill" class="category-btn">Grill</a>
+    <a href="grill.html" class="category-btn">Grill</a>
 </section>
 
 <footer>
@@ -126,4 +202,3 @@ footer {
 
 </body>
 </html>
-
