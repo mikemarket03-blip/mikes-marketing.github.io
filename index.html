@@ -14,12 +14,12 @@
 <!-- SEO Meta Tags -->
 <meta name="description" content="Curated Essentials brings together premium, hand-selected products across Home Goods, Kitchen, Outdoors, Garden & Patio, and Grill categories.">
 
-<!-- Open Graph (Facebook / Meta) -->
+<!-- Open Graph -->
 <meta property="og:title" content="Curated Essentials">
 <meta property="og:description" content="Explore premium, hand-selected essentials across every category.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mikemarket03-blip.github.io/mikes-marketing.github.io/">
-<meta property="og:image" content="your-social-preview-image.jpg">
+<meta property="og:image" content="curated-essentials-social.jpg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -27,7 +27,7 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://mikemarket03-blip.github.io/mikes-marketing.github.io/">
 
-<!-- STRUCTURED DATA FOR GOOGLE -->
+<!-- STRUCTURED DATA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,19 +35,16 @@
   "name": "Curated Essentials",
   "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/index.html",
   "description": "Curated Essentials brings together premium, hand-selected products across Home Goods, Kitchen, Outdoors, Garden & Patio, and Grill categories.",
-
   "isPartOf": {
     "@type": "WebSite",
     "name": "Curated Essentials",
     "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/"
   },
-
   "publisher": {
     "@type": "Organization",
     "name": "Curated Essentials",
     "url": "https://mikemarket03-blip.github.io/mikes-marketing.github.io/"
   },
-
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -59,7 +56,6 @@
       }
     ]
   },
-
   "mainEntity": {
     "@type": "ItemList",
     "name": "Curated Essentials Categories",
@@ -91,14 +87,14 @@
 </script>
 
 <style>
-/* --- BASE RESET --- */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- PAGE FADE-IN --- */
+/* PAGE FADE-IN */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
@@ -131,7 +127,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Header */
+/* HEADER */
 .header {
     text-align: center;
     padding: 4rem 2rem;
@@ -142,8 +138,15 @@ html {
     backdrop-filter: blur(20px);
     padding: 3rem 4rem;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.12);
     display: inline-block;
+    opacity: 0;
+    animation: fadeDown 1s ease forwards;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .title-block h1 {
@@ -160,7 +163,15 @@ html {
     color: #4f6d7a;
 }
 
-/* Category Buttons */
+/* Subtitle */
+.subtitle {
+    text-align: center;
+    margin-top: -1rem;
+    color: #4f6d7a;
+    font-size: 1rem;
+}
+
+/* CATEGORY BUTTONS */
 .category-list {
     max-width: 600px;
     margin: 3rem auto 5rem;
@@ -182,14 +193,52 @@ html {
     color: #2f3e46;
     box-shadow: 0 15px 40px rgba(0,0,0,0.06);
     transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.category-btn:nth-child(1) { animation-delay: 0.1s; }
+.category-btn:nth-child(2) { animation-delay: 0.2s; }
+.category-btn:nth-child(3) { animation-delay: 0.3s; }
+.category-btn:nth-child(4) { animation-delay: 0.4s; }
+.category-btn:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .category-btn:hover {
     transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1), 0 0 25px rgba(90,130,255,0.25);
 }
 
-/* Footer */
+.category-btn:active {
+    transform: scale(0.97);
+}
+
+/* BACK TO TOP BUTTON */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #3a6fd8;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 2rem;
@@ -205,7 +254,7 @@ footer:hover {
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <section class="header">
     <div class="title-block">
@@ -214,6 +263,8 @@ footer:hover {
     </div>
 </section>
 
+<p class="subtitle">Explore our most popular curated collections</p>
+
 <section class="category-list" aria-label="Product Categories">
     <a href="homegoods.html" class="category-btn">Home Goods</a>
     <a href="kitchen.html" class="category-btn">Kitchen</a>
@@ -221,6 +272,8 @@ footer:hover {
     <a href="garden-and-patio.html" class="category-btn">Garden & Patio</a>
     <a href="grill.html" class="category-btn">Grill</a>
 </section>
+
+<a href="#top" class="back-to-top">↑</a>
 
 <footer>
     © 2026 Curated Essentials. This page contains affiliate links.
