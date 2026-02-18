@@ -120,4 +120,30 @@ body {
     color: #fff;
 }
 
+/* BREADCRUMBS */
+.breadcrumbs {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4f6d7a;
+}
+
+.breadcrumbs-inner {
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.breadcrumbs a {
+    color: #3a6fd8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
 
