@@ -68,25 +68,16 @@ body::before {
     color: #fff;
 }
 
-/* SECONDARY HOME BUTTON BAR — UPDATED */
-.home-bar {
-    position: sticky;
-    top: 60px;
+/* FLOATING HOME BUTTON (top-right corner) */
+.home-button {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1100;
+
+    padding: 10px 22px;
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(12px);
-    padding: 12px 20px;
-    z-index: 999;
-    transition: top 0.35s ease;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-
-    display: flex;
-    justify-content: flex-end; /* pushes Home button to the right */
-    align-items: center;
-}
-
-.home-bar a {
-    padding: 10px 22px;
-    background: rgba(255,255,255,0.55);
     border-radius: 12px;
     text-decoration: none;
     color: #2f3e46;
@@ -95,7 +86,7 @@ body::before {
     transition: 0.3s ease;
 }
 
-.home-bar a:hover {
+.home-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 18px 45px rgba(0,0,0,0.1);
 }
@@ -208,22 +199,18 @@ footer {
 
 <body>
 
+<!-- FLOATING HOME BUTTON -->
+<a href="index.html" class="home-button">Home</a>
+
 <!-- TOP NAV -->
 <div class="top-nav" id="topNav">
     <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="homegoods.html">Home Goods</a></li>
         <li><a href="kitchen.html">Kitchen</a></li>
         <li><a href="outdoors.html">Outdoors</a></li>
-        <li><a href="garden.html">Garden</a></li>
+        <li><a href="garden-and-patio.html">Garden & Patio</a></li>
         <li><a href="grill.html" class="active">Grill</a></li>
-        <li><a href="more.html">More</a></li>
     </ul>
-</div>
-
-<!-- SECONDARY HOME BUTTON -->
-<div class="home-bar" id="homeBar">
-    <a href="index.html">Home</a>
 </div>
 
 <section class="header">
@@ -284,17 +271,17 @@ footer {
 <script>
 let lastScroll = 0;
 const topNav = document.getElementById("topNav");
-const homeBar = document.getElementById("homeBar");
+const homeButton = document.querySelector(".home-button");
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > lastScroll && currentScroll > 80) {
         topNav.style.top = "-100px";
-        homeBar.style.top = "-100px";
+        homeButton.style.top = "-100px";
     } else {
         topNav.style.top = "0";
-        homeBar.style.top = "60px";
+        homeButton.style.top = "15px";
     }
 
     lastScroll = currentScroll;
