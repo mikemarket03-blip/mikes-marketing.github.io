@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peggy | Curated Essentials</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* BODY */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #d9e4ec, #eef3f8);
+    min-height: 100vh;
+    color: #2f3e46;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+    top: -250px;
+    right: -250px;
+    filter: blur(100px);
+    z-index: -1;
+}
+
+/* NAVIGATION */
+.navbar {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.nav-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #2f3e46;
+    font-weight: 600;
+    background: rgba(255,255,255,0.6);
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.nav-active {
+    background: #3a6fd8;
+    color: white;
+}
+    
+/* BREADCRUMB TAB */
+.breadcrumbs {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4f6d7a;
+}
+
+.breadcrumbs-inner {
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.breadcrumbs a {
+    color: #3a6fd8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+}
+
+.title-block {
+    background: rgba(255,255,255,0.45);
+    backdrop-filter: blur(20px);
+    padding: 3rem 4rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    display: inline-block;
+    max-width: 650px;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.title-block h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.title-block p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #4f6d7a;
+}
+
+/* PRODUCT GRID */
+.products {
+    max-width: 1200px;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 0 2rem 4rem;
+}
+
+/* PRODUCT CARD */
+.card {
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 10px;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
+}
+
+/* CARD CONTENT */
+.card-content {
+    padding: 1.8rem;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #556b75;
+    margin-bottom: 1.5rem;
+}
+
+/* BUTTON */
+.button {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #5f8fdc, #3a6fd8);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(58,111,216,0.3);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+    color: #6b7f87;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .title-block { padding: 2rem; }
+    .title-block h1 { font-size: 2.2rem; }
+    .navbar { flex-wrap: wrap; gap: 0.6rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="homegoods.html" class="nav-btn">Home Goods</a>
+    <a href="kitchen.html" class="nav-btn">Kitchen</a>
+    <a href="outdoors.html" class="nav-btn">Outdoors</a>
+    <a href="garden-and-patio.html" class="nav-btn">Garden & Patio</a>
+    <a href="grill.html" class="nav-btn">Grill</a>
+    <a href="peggy.html" class="nav-btn nav-active" aria-current="page">Peggy</a>
+</nav>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <a href="index.html">Home</a> › Grill
+    </div>
+</div>
+
+<!-- HEADER -->
+<section class="header">
+    <div class="title-block">
+        <h1>Peggy's Essentials</h1>
+        <p>Premium accessories</p>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+    <!-- Product 1 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51bkzSxp9RL._AC_SX679_.jpg" alt="Under Armour Pants3">
+        <div class="card-content">
+            <h3>Under Armour Pants</h3>
+            <p>Under Armour Men's Woven Vital Workout Pants</p>
+            <a href="https://amzn.to/4rBCJ7r" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71eD+kia0+L._AC_SX679_.jpg" alt="Packing Cubes">
+        <div class="card-content">
+            <h3>Packing Cubes</h3>
+            <p>BAGAIL 6 Set/8 Set/10 Set Packing Cubes Various Sizes Packing Organizer for Travel Accessories Luggage Carry On Suitcase</p>
+            <a href="https://amzn.to/4rzbj24" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81yibWkhLZL._SX466_.jpg" alt="Hair Color | R48 Red Velvet">
+        <div class="card-content">
+            <h3>Hair Color | R48 Red Velvet</h3>
+            <p>L'Oreal Paris Feria Multi-Faceted Shimmering Permanent Hair Color, R48 Red Velvet (Intense Deep Auburn), Pack of 1 Hair Dye Kit.</p>
+            <a href="https://amzn.to/3N6kAAB" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51sjvd0MiTL._SL1200_.jpg" alt="BOLDIFY Hairline Powder">
+        <div class="card-content">
+            <h3>BOLDIFY Hairline Powder</h3>
+            <p>BOLDIFY Hairline Powder - Root Touch Up Hair Color for Gray Coverage - Bald Spot Concealing Hair Powder for Women & Men - 24-Hour Stain-Proof - Dark Auburn</p>
+            <a href="https://amzn.to/4uxE95y" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51FbAdOJGaL._AC_SX569_.jpg" alt="EverGoing Yoga Pants">
+        <div class="card-content">
+            <h3>EverGoing Yoga Pants</h3>
+            <p>G4Free EverGoing Yoga Pants Women Wide Leg Pants with Pockets High Waist Stretch Dress Casual Sweatpants Petite/Regular/Tall</p>
+            <a href="https://amzn.to/3NBP1yC" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81hJcdj8zEL._SX679_PIbundle-12,TopRight,0,0_AA679SH20_.jpg" alt="Velveeta Shells and Cheese">
+        <div class="card-content">
+            <h3>Velveeta Shells and Cheese</h3>
+            <p>Velveeta Shells and Cheese, Single Serve Cups (2.39 Ounce cups, 12 Count)</p>
+            <a href="https://amzn.to/4rCH5Ls" class="button" target="_blank">View Product</a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Curated Essentials. Contains affiliate links.
+</footer>
+
+</body>
+</html>
